@@ -1,0 +1,23 @@
+MODELS
+
+Plans
+
+Shifts
+  has one shifttype
+  starttime from
+  endtime from
+  date
+  has many workers
+
+ShiftTypes
+  starttime
+  endtime
+  duration
+
+Users
+
+Workers
+  belongs to many shifts
+
+Operators
+
