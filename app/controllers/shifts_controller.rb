@@ -13,8 +13,8 @@ class ShiftsController < ApplicationController
         @shift = Shift.find ( params[:id])
         @shift.status = 1    
         @shift.date = Date.today
-        
         if @shift.save
+            ShiftMailer.confirm_mail.deliver
         else
         end
     end
