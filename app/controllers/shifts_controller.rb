@@ -5,12 +5,14 @@ class ShiftsController < ApplicationController
     
     def show
         @shift = Shift.find ( params[:id])
+        @shifts = Shift.all
     end
     
     
     def confirm
         @shift = Shift.find ( params[:id])
         @shift.status = 1    
+        @shift.date = Date.today
         
         if @shift.save
         else

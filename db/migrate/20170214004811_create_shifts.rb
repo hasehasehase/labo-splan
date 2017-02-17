@@ -4,6 +4,7 @@ class CreateShifts < ActiveRecord::Migration[5.0]
 #      t.string :unique_ID
       t.string :name
       t.string :time
+      t.string :date
       # Set a status, 0 == undecided; 1 == happening; 2 == not happening; 3: something else
       t.integer :status
       t.timestamps

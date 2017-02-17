@@ -1,5 +1,21 @@
-<ul>
-    <li><%= @shift.name %></li>
-    <li><%= @shift.time %></li>
-    <li><%= @shift.status %></li>
-</ul>
+<p>SCHICHT: <br>
+<tr>
+    <td><%= @shift.name %></li>
+    <td><%= @shift.date %></td>
+    <td><%= @shift.time %></li>
+    <td><%= @shift.status %></li>
+</tr>
+</p>
+<br><br><br>
+
+    <% @shifts.each do |shift| %>
+      <tr>
+    <td><%= shift.id %></td>  
+    <td><%= shift.date %></td>  
+    <td><%= shift.name %></td>
+    <td><%= shift.time %></td>
+    <td><%= shift.status %></td>
+    
+      </tr>
+      <br>
+    <% end %>
