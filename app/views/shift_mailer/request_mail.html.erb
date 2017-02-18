@@ -11,7 +11,8 @@
   <b>Datum:</b> <%= @date %><br>
   <b>Schicht:</b> <%= @name %><br>
   <b>Zeit:</b> <%= @time %> <br></p>
-
+  <%= link_to "Schicht findet statt", 'shifts/#{ @uid }/confirm' %>
+  <%= link_to "Schicht findet nicht statt", 'shifts/#{ @uid }/confirm' %>
 
 
   </body>
