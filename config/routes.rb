@@ -3,10 +3,11 @@ Rails.application.routes.draw do
 #  post 'shifts', to: 'shifts#update'
 #  root 'pages#home'
 
-resources :shifts
+resources :shifts 
 get 'shifts/:id/show', to: 'shifts#show'
 get 'shifts/:id/confirm', to: 'shifts#confirm'
 get 'shifts/:id/deny', to: 'shifts#deny'
+get 'machen', to: 'shifts#new'
 
 # get "shifts/:id/confirm" to "shifts#confirm"
 
