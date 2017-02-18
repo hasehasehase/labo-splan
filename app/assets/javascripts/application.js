@@ -15,3 +15,27 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap-sprockets
+ function FFSFunction() {
+     document.getElementById('name').value="FFS"
+     document.getElementById('time').value="04:00 - 13:00"
+ }
+ 
+  function FSFunction() {
+     document.getElementById('name').value="FS"
+     document.getElementById('time').value="06:00 - 13:00"
+ }
+ 
+  function SSFunction() {
+     document.getElementById('name').value="SS"
+     document.getElementById('time').value="13:00 - 21:00"
+ }
+ 
+  function SSSFunction() {
+     document.getElementById('name').value="SSS"
+     document.getElementById('time').value="13:00 - 22:00"
+ }
+ 
+  function NSFunction() {
+     document.getElementById('name').value="NS"
+     document.getElementById('time').value="22:45 - 03:30"
+ }
