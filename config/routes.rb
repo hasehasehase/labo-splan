@@ -4,8 +4,8 @@ Rails.application.routes.draw do
 #  root 'pages#home'
 
 resources :shifts, param: :unique_identifier
-get 'shifts/:id/show', to: 'shifts#show'
-get 'shifts/:id/confirm', to: 'shifts#confirm'
+get 'shifts/:unique_identifier/show', to: 'shifts#show'
+get 'shifts/:unique_identifier/confirm', to: 'shifts#confirm'
 get 'shifts/:unique_identifier/deny', to: 'shifts#deny'
 get 'machen', to: 'shifts#new', as: 'neu_shift'
 

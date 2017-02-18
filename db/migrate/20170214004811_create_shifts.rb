@@ -1,7 +1,7 @@
 class CreateShifts < ActiveRecord::Migration[5.0]
   def change
     create_table :shifts do |t|
-      t.string :unique_identifier
+  #    t.string :unique_identifier
       t.string :name
       t.string :time
       t.string :date

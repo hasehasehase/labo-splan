@@ -10,16 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170214004811) do
+ActiveRecord::Schema.define(version: 20170218124718) do
 
   create_table "shifts", force: :cascade do |t|
-    t.string   "unique_identifier"
     t.string   "name"
     t.string   "time"
     t.string   "date"
     t.integer  "status"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.string   "unique_identifier"
+    t.index ["unique_identifier"], name: "index_shifts_on_unique_identifier", unique: true
   end
 
 end

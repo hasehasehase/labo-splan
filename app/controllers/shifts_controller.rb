@@ -13,22 +13,18 @@ class ShiftsController < ApplicationController
         end
     end
     
-# before_create :create_unique_identifier
 
-    def create_unique_identifier
-      begin
-        self.unique_identifier = SecureRandom.hex(5) # or whatever you chose like UUID tools
-      end while self.class.exists?(:unique_identifier => unique_identifier)
-    end
+
+
     
     def show
-        @shift = Shift.find ( params[:id])
+        @shift = Shift.find_by unique_identifier: ( params[:unique_identifier])
         @shifts = Shift.all
     end
     
     
     def confirm
-        @shift = Shift.find ( params[:id])
+        @shift = Shift.find_by unique_identifier: ( params[:unique_identifier])
         @shift.status = 1    
       #  @shift.date = Date.today
         if @shift.save
@@ -38,7 +34,7 @@ class ShiftsController < ApplicationController
     end
     
     def deny
-        @shift = Shift.find_by( params[:id])
+        @shift = Shift.find_by( params[:unique_identifier])
         @shift.status = 2    
         
         if @shift.save
