@@ -23,6 +23,7 @@ default from: 'kecz0r@gmail.com'
     @name = @shift.name
     @date = @shift.date
     @time = @shift.time
-    mail(to: "kecz0r@gmail.com", subject: "#{ @shift.name } am #{ @shift.date }." , body: 'l0rn')
+    @uid = uid
+    mail(to: "kecz0r@gmail.com", subject: "#{ @shift.name } am #{ @shift.date }.")
   end
 end
