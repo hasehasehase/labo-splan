@@ -1,0 +1,18 @@
+<div class="well">   
+   
+    <% @shifts.each do |shift| %>
+      <tr>
+    <td><%= shift.id %></td>
+        <td><%= shift.unique_identifier %></td>
+    <td><%= shift.date %></td>  
+    <td><%= shift.name %></td>
+    <td><%= shift.time %></td>
+    <td><%= shift.status %></td>
+
+    
+  
+    
+      </tr>
+      <br>
+    <% end %>
+    </div>

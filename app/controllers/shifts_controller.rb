@@ -1,4 +1,9 @@
 class ShiftsController < ApplicationController
+    
+    def index
+        @shifts = Shift.all
+    end
+    
     def new
     @shift = Shift.new
     end
@@ -26,7 +31,6 @@ class ShiftsController < ApplicationController
     def confirm
         @shift = Shift.find_by unique_identifier: ( params[:unique_identifier])
         @shift.status = 1    
-      #  @shift.date = Date.today
         if @shift.save
       #      ShiftMailer.confirm_mail.deliver
         else
@@ -34,17 +38,13 @@ class ShiftsController < ApplicationController
     end
     
     def deny
-        @shift = Shift.find_by( params[:unique_identifier])
+        @shift = Shift.find_by unique_identifier: ( params[:unique_identifier])
         @shift.status = 2    
         
         if @shift.save
         else
         end
     end
-#    private
-#    def shift_params
-#      params.require(:shift).permit(:status)
-#    end
 
   private
     # To collect data from form, we need to use

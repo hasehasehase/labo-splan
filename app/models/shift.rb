@@ -4,7 +4,7 @@ class Shift < ApplicationRecord
     
         def create_unique_identifier
       begin
-        self.unique_identifier = SecureRandom.hex(5) # or whatever you chose like UUID tools
+        self.unique_identifier = SecureRandom.hex(7) # or whatever you chose like UUID tools
       end while self.class.exists?(:unique_identifier => unique_identifier)
     end
     
