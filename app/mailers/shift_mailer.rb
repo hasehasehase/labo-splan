@@ -1,5 +1,5 @@
 class ShiftMailer < ApplicationMailer
-
+default_from 'kecz0r@gmail.com'
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
   #

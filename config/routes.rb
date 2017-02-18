@@ -6,7 +6,7 @@ root 'pages#home'
 resources :shifts, param: :unique_identifier
 get 'shifts/:unique_identifier/show', to: 'shifts#show'
 get 'shifts/:unique_identifier/confirm', to: 'shifts#confirm'
-get 'shifts/:unique_identifier/deny', to: 'shifts#deny'
+get 'shifts/:unique_identifier/deny', to: 'shifts#deny', as 'deny_path'
 get 'machen', to: 'shifts#new', as: 'neu_shift'
 get 'zeigen', to: 'shifts#index'
 

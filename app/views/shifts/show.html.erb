@@ -1,23 +1,26 @@
-<p>SCHICHT: <br>
-<tr>
-    <td><%= @shift.name %></li>
-    <td><%= @shift.date %></td>
-    <td><%= @shift.time %></li>
-    <td><%= @shift.status %></li>
-    <td><%= @shift.unique_identifier %></li>
-</tr>
-</p>
-<br><br><br>
-
-    <% @shifts.each do |shift| %>
+<div class="container">
+  <div class="well">
+  <h3>SCHICHT:</h3> <br><br>
+    <table class="table">
       <tr>
-    <td><%= shift.id %></td>  
-    <td><%= shift.date %></td>  
-    <td><%= shift.name %></td>
-    <td><%= shift.time %></td>
-    <td><%= shift.status %></td>
-  
-    
+          <td><%= @shift.name %></td>
       </tr>
-      <br>
-    <% end %>
+      <tr>
+      <td><%= @shift.date %></td>
+      <td><%= @shift.time %></td>
+        <% if @shift.status == 1 %>
+            <td><i class="fa fa-check-square" aria-hidden="true"></i></td>
+        <% end %>
+        <% if @shift.status == 2 %>
+            <td><i class="fa fa-bed" aria-hidden="true"></i></td>
+        <% end %>
+        <% if @shift.status == 0 %>
+            <td><i class="fa fa-question-circle" aria-hidden="true"></i></td>
+        <% end %>
+        <br><br>
+      </tr>
+    </table>
+      <%= link_to "Bestätigen", 'confirm', class: "btn btn-default navbar-btn btn-primary" %>
+      <%= link_to "Ablehnen", 'deny', class: "btn btn-default navbar-btn btn-warning" %>
+  </div>
+</div>
