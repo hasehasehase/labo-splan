@@ -9,6 +9,7 @@ get 'shifts/:unique_identifier/confirm', to: 'shifts#confirm', as: 'confirm'
 get 'shifts/:unique_identifier/deny', to: 'shifts#deny', as: 'deny'
 get 'machen', to: 'shifts#new', as: 'neu_shift'
 get 'zeigen', to: 'shifts#index'
+get 'shifts/:unique_identifier/mailen', to: 'shifts#request_mailer', as: 'mail'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

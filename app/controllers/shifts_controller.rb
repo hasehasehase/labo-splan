@@ -50,15 +50,19 @@ class ShiftsController < ApplicationController
         end
     end
     
-  def destroy
-    @shift = Shift.find_by unique_identifier: ( params[:unique_identifier])
-    @shift.destroy
-        respond_to do |format|
-            format.html { redirect_to shifts_url, notice: 'Post was successfully destroyed.' }
-            format.json { head :no_content }
+    def destroy
+        @shift = Shift.find_by unique_identifier: ( params[:unique_identifier])
+        @shift.destroy
+            respond_to do |format|
+                format.html { redirect_to shifts_url, notice: 'Post was successfully destroyed.' }
+                format.json { head :no_content }
         end
-  end
-
+    end
+    def request_mailer
+        @shift = Shift.find_by unique_identifier: ( params[:unique_identifier])
+        ShiftMailer.request_mail(params[:unique_identifier]).deliver
+        redirect_to shifts_url
+    end
   private
     # To collect data from form, we need to use
     # strong parameters and whitelist the form fields

@@ -17,4 +17,12 @@ default from: 'kecz0r@gmail.com'
   def deny_mail
       mail(to: "kecz0r@gmail.com", subject: 'Kein Arbeiten.', body: 'Yay! :)')
   end
+  
+  def request_mail(uid)
+    @shift = Shift.find_by unique_identifier: (uid)
+    @name = @shift.name
+    @date = @shift.date
+    @time = @shift.time
+    mail(to: "kecz0r@gmail.com", subject: "#{ @shift.name } am #{ @shift.date }." , body: 'l0rn')
+  end
 end
