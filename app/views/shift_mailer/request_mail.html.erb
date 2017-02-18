@@ -12,6 +12,7 @@
   <b>Schicht:</b> <%= @name %><br>
   <b>Zeit:</b> <%= @time %> <br></p>
   <%= link_to "Schicht findet statt", 'shifts/#{ @uid }/confirm' %>
+  <a href="https://labomailer.herokuapps.com/shifts/#{ @uid }/confirm">Bestätigen.</a>
   <%= link_to "Schicht findet nicht statt", 'shifts/#{ @uid }/confirm' %>
 
 
