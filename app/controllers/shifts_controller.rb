@@ -45,6 +45,15 @@ class ShiftsController < ApplicationController
         else
         end
     end
+    
+  def destroy
+    @shift = Shift.find_by unique_identifier: ( params[:unique_identifier])
+    @shift.destroy
+        respond_to do |format|
+            format.html { redirect_to shifts_url, notice: 'Post was successfully destroyed.' }
+            format.json { head :no_content }
+        end
+  end
 
   private
     # To collect data from form, we need to use
