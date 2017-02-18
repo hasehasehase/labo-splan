@@ -1,10 +1,13 @@
 <div class="container">
-  <div class="well">
+  <div>
   <h3>SCHICHT:</h3> <br><br>
-    <table class="table">
-      <tr>
-          <td><%= @shift.name %></td>
-      </tr>
+  <div class="center">
+    <h4><%= @shift.name %></h4>
+  </div>
+    <table class="table well">
+      <th>Datum:</th>
+      <th>Zeit:</th>
+      <th>Status:</th>
       <tr>
       <td><%= @shift.date %></td>
       <td><%= @shift.time %></td>
@@ -20,7 +23,9 @@
         <br><br>
       </tr>
     </table>
-      <%= link_to "Bestätigen", confirm_path, class: "btn btn-default navbar-btn btn-primary" %>
-      <%= link_to "Ablehnen", deny_path, class: "btn btn-default navbar-btn btn-warning" %>
+      <div class="center">
+        <%= link_to "Bestätigen", confirm_path, class: "btn btn-default btn-primary" %>
+        <%= link_to "Ablehnen", deny_path, class: "btn btn-default btn-warning" %>
+      </div>
   </div>
 </div>
