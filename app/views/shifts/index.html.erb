@@ -23,7 +23,7 @@
 
             
         <td><%= shift.id %></td>
-       <td><%= shift.unique_identifier %></td>
+       <td><%= link_to shift.unique_identifier , controller: "shifts", action: "show", unique_identifier: shift.unique_identifier %></td>
         <td><%= shift.date %></td>  
         <td><%= shift.name %></td>
         <td><%= shift.time %></td>
