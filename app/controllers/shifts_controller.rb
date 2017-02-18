@@ -45,6 +45,7 @@ class ShiftsController < ApplicationController
         @shift.status = 2    
         
         if @shift.save
+            ShiftMailer.deny_mail.deliver
         else
         end
     end
