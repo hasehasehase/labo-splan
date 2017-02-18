@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 #  resources :shifts
 #  post 'shifts', to: 'shifts#update'
-#  root 'pages#home'
+root 'pages#home'
 
 resources :shifts, param: :unique_identifier
 get 'shifts/:unique_identifier/show', to: 'shifts#show'
