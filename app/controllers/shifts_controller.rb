@@ -10,7 +10,7 @@ class ShiftsController < ApplicationController
     
     def create
         @shift = Shift.new(shift_params)
-        if @shift.status == 1
+        if @shift.status == 1 || @shift.status == 2
         else    
             @shift.status = 0
         end
@@ -35,7 +35,7 @@ class ShiftsController < ApplicationController
         @shift = Shift.find_by unique_identifier: ( params[:unique_identifier])
         @shift.status = 1    
         if @shift.save
-      #      ShiftMailer.confirm_mail.deliver
+            ShiftMailer.confirm_mail.deliver
         else
         end
     end
