@@ -1,3 +1,6 @@
+<div class="container">
+<div class="well">
+
 <%= form_for @shift do |f| %>
 	<div class="form-group">
 	<%= f.label :name %>
@@ -12,6 +15,13 @@
 	<div class="form-group">
 	<%= f.label "Datum:" %>
 	<%= f.text_field :date, class: 'form-control' %>
-
+	
+	<div class="form-group">
+	<%= label_tag(:status, "steht fest") %>
+	<%= f.check_box :status %>
+	</div>
 	<%= f.submit 'Submit', class: 'btn btn-default' %>
 <% end %>
+
+</div>
+</div>

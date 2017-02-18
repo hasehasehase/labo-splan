@@ -10,7 +10,10 @@ class ShiftsController < ApplicationController
     
     def create
         @shift = Shift.new(shift_params)
-        @shift.status = 0
+        if @shift.status == 1
+        else    
+            @shift.status = 0
+        end
         if @shift.save
             redirect_to neu_shift_path, notice: "Message sent."
         else
@@ -59,6 +62,6 @@ class ShiftsController < ApplicationController
     # To collect data from form, we need to use
     # strong parameters and whitelist the form fields
     def shift_params
-      params.require(:shift).permit(:name, :time, :date)
+      params.require(:shift).permit(:name, :time, :date, :status)
     end
 end
