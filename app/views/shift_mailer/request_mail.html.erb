@@ -11,9 +11,7 @@
   <b>Datum:</b> <%= @date %><br>
   <b>Schicht:</b> <%= @name %><br>
   <b>Zeit:</b> <%= @time %> <br></p>
-
-<%= link_to "Ja" , controller: "shifts", action: "confirm", unique_identifier: @uid %>
-<nbsp>         </nbsp>
-<%= link_to "Nein" , controller: "shifts", action: "confirm", unique_identifier: @uid %>
+<%= confirm_url(:host => "https://labo-splan-hasehase.c9users.io", :unique_identifier => @uid) %>
+<%= deny_url("Ablehnen", :host => "https://labo-splan-hasehase.c9users.io", :unique_identifier => @uid) %>
   </body>
 </html>
