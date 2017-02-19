@@ -12,5 +12,8 @@
   <b>Schicht:</b> <%= @name %><br>
   <b>Zeit:</b> <%= @time %> <br></p>
 
+<%= link_to "Ja" , controller: "shifts", action: "confirm", unique_identifier: @uid %>
+<nbsp>         </nbsp>
+<%= link_to "Nein" , controller: "shifts", action: "confirm", unique_identifier: @uid %>
   </body>
 </html>
