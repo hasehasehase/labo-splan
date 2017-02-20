@@ -11,4 +11,8 @@ class ShiftMailerPreview < ActionMailer::Preview
     ShiftMailer.deny_mail
   end
 
+  def request_mail
+    ShiftMailer.request_mail
+  end
+
 end

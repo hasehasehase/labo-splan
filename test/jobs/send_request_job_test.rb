@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ShiftsMailerTest < ActionMailer::TestCase
+class SendRequestJobTest < ActiveJob::TestCase
   # test "the truth" do
   #   assert true
   # end

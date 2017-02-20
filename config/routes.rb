@@ -12,6 +12,7 @@ get 'shifts/:unique_identifier/deny', to: 'shifts#deny', as: 'deny'
 get 'machen', to: 'shifts#new', as: 'neu_shift'
 get 'zeigen', to: 'shifts#devindex'
 get 'shifts/:unique_identifier/mailen', to: 'shifts#request_mailer', as: 'mail'
+get 'shifts/:unique_identifier/delay', to: 'shifts#delayed_mailer', as: 'delay'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

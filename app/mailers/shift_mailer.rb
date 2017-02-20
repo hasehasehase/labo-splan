@@ -32,6 +32,7 @@ default from: ENV["from_mail"]
 		@time = @shift.time
 		@op_email = ENV["operator_email"]
 		@uid = uid
+		puts "Sending Mail"
 		mail(to: @op_email, subject: "#{ @shift.name } am #{ @date }.")
 	end
 end

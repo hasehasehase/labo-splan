@@ -66,6 +66,16 @@ class ShiftsController < ApplicationController
         end
     end
     
+    def delayed_mailer
+        @shift = Shift.find_by unique_identifier: ( params[:unique_identifier])
+        @job = SendRequestJob.set(wait: 20.seconds).perform_later(@shift)
+        @oldlog = @shift.logs
+        @shift.logs = @oldlog + "<br>Per Mail angefragt am #{ DateTime.now.in_time_zone('Berlin').strftime('%d.%m.%Y um %H:%M Uhr.')}"
+        @shift.req_status = true
+        @shift.save
+        redirect_to shifts_url
+    end
+    
     def request_mailer
         @shift = Shift.find_by unique_identifier: ( params[:unique_identifier])
         ShiftMailer.request_mail(params[:unique_identifier]).deliver
