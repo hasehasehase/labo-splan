@@ -23,7 +23,7 @@
       </tr>
     </table>
     <h6>Log:</h6>
-    <div class="container"></div>
+    <div class="container"><%= raw @shift.logs %></div>
 
       <div class="center buttonbox">
         <%= link_to "Bestätigen", confirm_path, class: "btn btn-default btn-primary" %>
