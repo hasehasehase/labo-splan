@@ -1,7 +1,7 @@
 class ShiftsController < ApplicationController
     
     def index
-        @shifts = Shift.all
+        @shifts = Shift.all.order('date')
     end
     def error
     end
@@ -28,7 +28,6 @@ class ShiftsController < ApplicationController
     
     def show
         @shift = Shift.find_by unique_identifier: ( params[:unique_identifier])
-        @shifts = Shift.all
     end
     
     
