@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 root 'pages#home'
 
 resources :shifts, param: :unique_identifier
+get 'error', to: 'shifts#error', as: 'error'
 get 'shifts/:unique_identifier/show', to: 'shifts#show'
 get 'shifts/:unique_identifier/confirm', to: 'shifts#confirm', as: 'confirm'
 get 'shifts/:unique_identifier/deny', to: 'shifts#deny', as: 'deny'

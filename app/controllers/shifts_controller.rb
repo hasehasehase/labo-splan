@@ -3,7 +3,8 @@ class ShiftsController < ApplicationController
     def index
         @shifts = Shift.all
     end
-    
+    def error
+    end
     def new
     @shift = Shift.new
     end
@@ -15,9 +16,9 @@ class ShiftsController < ApplicationController
             @shift.status = 0
         end
         if @shift.save
-            redirect_to neu_shift_path, notice: "Message sent."
+            redirect_to shifts_path, notice: "Message sent."
         else
-            redirect_to neu_shift_path, notice: "Error occured."
+            redirect_to error_path, notice: "Error occured."
         end
     end
     
