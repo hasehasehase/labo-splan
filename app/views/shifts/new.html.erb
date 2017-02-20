@@ -1,38 +1,37 @@
 <div class="container">
+	<%= link_to "Übersicht", shifts_path, class: "btn btn-primary new-shift-btn" %>
 <div class="well">
-
-<%= form_for @shift do |f| %>
-	<div class="form-group">
-		<%= f.label :name %>
-		<%= f.text_field :name, class: 'form-control', id: "name" %>
-	</div>
-	
-	<div class="form-group">
-		<%= f.label "Zeit:" %>
-		<%= f.text_field :time, class: 'form-control', id: "time" %>
-	</div>
-	
-	<div class="form-group">
-		<%= f.label "Datum:" %>
-		<%= f.date_field :date, class: 'form-control'  %>
-	</div>
-	
-	<div class="form-group">
-		<%= f.label "Status:" %><br>
-		<%= f.radio_button(:status, "1") %>
-		<%= f.label(:status, "fest arbeiten") %>
-		<%= f.radio_button(:status, "2") %>
-		<%= f.label(:status, "fest frei") %>
-		<%= f.radio_button(:status, "0") %>
-		<%= f.label(:status, "unklar") %>
-	</div>
+	<h3>Neue Schicht eintragen</h3>
+	<%= form_for @shift do |f| %>
+		<div class="form-group">
+			<%= f.label "Name:" %>
+			<%= f.text_field :name, class: 'form-control', id: "name" %>
+		</div>
+		
+		<div class="form-group">
+			<%= f.label "Zeit:" %>
+			<%= f.text_field :time, class: 'form-control', id: "time" %>
+		</div>
+		
+		<div class="form-group">
+			<%= f.label "Datum:" %>
+			<%= f.date_field :date, class: 'form-control'  %>
+		</div>
+		
+		<div class="form-group">
+			<%= f.label "Status:" %><br>
+			<%= f.radio_button(:status, 1, checked: true) %>
+			<%= f.label(:status, "fest arbeiten") %>
+			<%= f.radio_button(:status, 2) %>
+			<%= f.label(:status, "fest frei") %>
+			<%= f.radio_button(:status, 0) %>
+			<%= f.label(:status, "unklar") %>
+		</div>
 	<%= f.submit 'Speichern', class: 'btn btn-default' %>
-	
-<% end %>
-
+	<% end %>
 
 </div>
-<div>
+<div class="container center">
 	<button class="btn btn-primary" onclick="FFSFunction()">FFS</button>
 	<button class="btn btn-primary" onclick="FSFunction()">FS</button>
 	<button class="btn btn-primary" onclick="SSFunction()">SS</button>

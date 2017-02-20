@@ -21,9 +21,17 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
+body {
+    font-family: 'Open Sans', sans-serif;
+}
 h1, h2, h3 {
-  font-family: 'Open Sans', sans-serif;
-  text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+    font-weight: bold;
+}
+th {
+    letter-spacing: 1.5px;
+    font-weight: bold;
 }
 .center {
     text-align: center;
@@ -41,4 +49,6 @@ h1, h2, h3 {
 .big-btn {
     padding: 33px;
     margin: 120px;
+    font-size: 18;
+    font-weight: bold;
 }
