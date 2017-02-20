@@ -44,8 +44,3 @@
      document.getElementById('time').value="22:45 - 03:30"
  }
  
- $('#sandbox-container .date_field').datepicker({
-    format: "dd. mm. yy",
-    calendarWeeks: true,
-    todayHighlight: true
-});

@@ -17,10 +17,11 @@ class ShiftsController < ApplicationController
     
     def create
         @shift = Shift.new(shift_params)
-        if @shift.status == 1 || @shift.status == 2
-        else    
-            @shift.status = 0
-        end
+ #       if @shift.status == 1 || @shift.status == 2
+ #       else    
+ #           @shift.status = 0
+ #       end
+        
         if @shift.save
             redirect_to shifts_path, notice: "Message sent."
         else
