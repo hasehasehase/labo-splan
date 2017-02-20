@@ -14,5 +14,3 @@ ActionMailer::Base.smtp_settings = {
   :authentication => :plain,
 }
 ActionMailer::Base.delivery_method = :smtp
-
-config.action_mailer.default_url_options = { :host => 'https://labo-splan-hasehase.c9users.io' }
