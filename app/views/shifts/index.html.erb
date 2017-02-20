@@ -1,7 +1,7 @@
 <div class="container">   
     <table class="table">
         <tr>
-            <%= link_to "Neue Schicht hinzufügen", new_shift_path, class: "btn btn-success" %>
+            <%= link_to "Neue Schicht hinzufügen", new_shift_path, class: "btn btn-success new_shift_btn" %>
         </tr>
         <tr>
             <th>#</th>
@@ -27,7 +27,9 @@
             
         <td><%= shift.id %></td>
        <td><%= link_to shift.unique_identifier , controller: "shifts", action: "show", unique_identifier: shift.unique_identifier %></td>
-        <td><%= shift.date %></td>  
+        <td>
+            <%= Date.strptime( shift.date, '%Y-%m-%d').strftime('%d. %m. %Y') %>
+        </td>  
         <td><%= shift.name %></td>
         <td><%= shift.time %></td>
         <% if shift.status == 1 %>
