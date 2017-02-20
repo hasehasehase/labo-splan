@@ -1,12 +1,13 @@
 class ShiftMailer < ApplicationMailer
-default from: 'kecz0r@gmail.com'
+default from: 'max.haselmayer@gmail.com'
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
   #
   #   en.shift_mailer.confirm_mail.subject
   #
   def confirm_mail
-      mail(to: "kecz0r@gmail.com", subject: 'Arbeiten.', body: 'Leider :(')
+      @user_email = ENV["user_email"]
+      mail(to: @user_email, subject: 'Arbeiten.', body: 'Leider :(')
   end
 
   # Subject can be set in your I18n file at config/locales/en.yml
@@ -15,7 +16,8 @@ default from: 'kecz0r@gmail.com'
   #   en.shift_mailer.deny_mail.subject
   #
   def deny_mail
-      mail(to: "kecz0r@gmail.com", subject: 'Kein Arbeiten.', body: 'Yay! :)')
+    @user_email = ENV["user_email"]
+      mail(to: @user_email, subject: 'Kein Arbeiten.', body: 'Yay! :)')
   end
   
   def request_mail(uid)
@@ -23,7 +25,8 @@ default from: 'kecz0r@gmail.com'
     @name = @shift.name
     @date = @shift.date
     @time = @shift.time
+    @op_email = ENV["operator_email"]
     @uid = uid
-    mail(to: "kecz0r@gmail.com", subject: "#{ @shift.name } am #{ @shift.date }.")
+    mail(to: @op_email, subject: "#{ @shift.name } am #{ @shift.date }.")
   end
 end

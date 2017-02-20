@@ -35,6 +35,9 @@ gem 'hirb', '0.7.3'
 # Use Datepicker for calender stuff
 gem 'bootstrap-datepicker-rails'
 
+# Use figaro for ENV variables
+gem 'figaro'
+
 # Use Devise for user authentication
 gem 'devise', '4.2.0'
 

@@ -11,7 +11,8 @@
   <b>Datum:</b> <%= @date %><br>
   <b>Schicht:</b> <%= @name %><br>
   <b>Zeit:</b> <%= @time %> <br></p>
-<%= confirm_url(:host => "https://labo-splan-hasehase.c9users.io", :unique_identifier => @uid) %>
-<%= deny_url("Ablehnen", :host => "https://labo-splan-hasehase.c9users.io", :unique_identifier => @uid) %>
+<%= link_to "Schicht findet statt.", confirm_url(:host => 'https://labomailer.herokuapp.com/', :unique_identifier => @uid) %>
+<br>
+<%= link_to "Schicht findet nicht statt.", deny_url(:host => 'https://labomailer.herokuapp.com/', :unique_identifier => @uid)%>
   </body>
 </html>
