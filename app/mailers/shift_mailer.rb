@@ -23,7 +23,7 @@ default from: 'max.haselmayer@gmail.com'
   def request_mail(uid)
     @shift = Shift.find_by unique_identifier: (uid)
     @name = @shift.name
-    @date = @shift.date
+    @date = Date.strptime( @shift.date, '%Y-%m-%d').strftime('%d. %m. %Y')
     @time = @shift.time
     @op_email = ENV["operator_email"]
     @uid = uid

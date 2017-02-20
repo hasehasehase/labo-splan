@@ -69,7 +69,7 @@ class ShiftsController < ApplicationController
         @shift = Shift.find_by unique_identifier: ( params[:unique_identifier])
         ShiftMailer.request_mail(params[:unique_identifier]).deliver
         @oldlog = @shift.logs
-        @shift.logs = @oldlog + "Per Mail angefragt am #{ DateTime.now.in_time_zone('Berlin').strftime('%d. %m. %Y um %H:%M Uhr.')}"
+        @shift.logs = @oldlog + "<br>Per Mail angefragt am #{ DateTime.now.in_time_zone('Berlin').strftime('%d. %m. %Y um %H:%M Uhr.')}"
         @shift.save
         redirect_to shifts_url
     end
