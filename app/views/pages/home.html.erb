@@ -1,4 +1,10 @@
 <div class="container center">
-    <%= link_to "Schichten", shifts_path, class: "btn btn-primary big-btn" %>
-    
+    <% if user_signed_in? %>
+        <%= link_to "Schichten", shifts_path, class: "btn btn-primary big-btn" %>
+        <%= link_to "Ausloggen", destroy_user_session_path, method: :delete %>
+    <% else %>
+        <%= content_tag(:p, "Diese Seite ist nur für eingeloggte Benutzer sichtbar.") %>
+        <%= link_to "Einloggen", new_user_session_path, class: "btn btn-primary" %>
+        <%= link_to "Anmelden", new_user_registration_path, class: "btn btn-primary" %>
+    <% end %>
 </div>
