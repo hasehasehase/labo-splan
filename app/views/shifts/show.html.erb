@@ -20,13 +20,17 @@
         <% if @shift.status == 0 %>
             <td><i class="fa fa-question-circle" aria-hidden="true"></i></td>
         <% end %>
-        <br><br>
       </tr>
     </table>
-      <div class="center">
+    <h6>Log:</h6>
+    <div class="container"><%= @shift.logs.html_safe %></div>
+
+      <div class="center buttonbox">
         <%= link_to "Bestätigen", confirm_path, class: "btn btn-default btn-primary" %>
         <%= link_to "Ablehnen", deny_path, class: "btn btn-default btn-warning" %>
         <%= link_to "Löschen", delete_path, class: "btn btn-default btn-danger", data: { confirm: 'Wirklich löschen?' } %>
+        <br>
       </div>
   </div>
+  
 </div>

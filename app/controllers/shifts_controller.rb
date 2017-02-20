@@ -21,7 +21,7 @@ class ShiftsController < ApplicationController
  #       else    
  #           @shift.status = 0
  #       end
-        
+        @shift.logs = "Erstellt am #{ DateTime.now.in_time_zone('Berlin').strftime('%d. %m. %Y um %H:%M')}"
         if @shift.save
             redirect_to shifts_path, notice: "Message sent."
         else
@@ -35,7 +35,9 @@ class ShiftsController < ApplicationController
     
     def confirm
         @shift = Shift.find_by unique_identifier: ( params[:unique_identifier])
-        @shift.status = 1    
+        @shift.status = 1 
+        @oldlog = @shift.logs
+        @shift.logs = @oldlog + "<br/>Bestätigt am #{ DateTime.now.in_time_zone('Berlin').strftime('%d. %m. %Y um %H:%M') }"
         if @shift.save
             ShiftMailer.confirm_mail.deliver
         else
@@ -44,7 +46,9 @@ class ShiftsController < ApplicationController
     
     def deny
         @shift = Shift.find_by unique_identifier: ( params[:unique_identifier])
-        @shift.status = 2    
+        @shift.status = 2 
+        @oldlog = @shift.logs
+        @shift.logs = @oldlog + "<br/>Abgelehnt am #{ DateTime.now.in_time_zone('Berlin').strftime('%d. %m. %Y um %H:%M') }"
         
         if @shift.save
             ShiftMailer.deny_mail.deliver
