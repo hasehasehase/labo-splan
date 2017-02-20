@@ -1,11 +1,9 @@
 <div class="container">   
     <table class="table">
         <tr>
-            <%= link_to "Neue Schicht hinzufügen", new_shift_path, class: "btn btn-success new_shift_btn" %>
+            <%= link_to "Neue Schicht hinzufügen", new_shift_path, class: "btn btn-success new-shift-btn" %>
         </tr>
         <tr>
-            <th>#</th>
-            <th>u#:</th>
             <th>Datum:</th>
             <th>Name:</th>
             <th>Zeit:</th>
@@ -22,25 +20,19 @@
             <% if shift.status == 2 %>
                 <tr class="info">
             <% end %>
-
-
-            
-        <td><%= shift.id %></td>
-       <td><%= link_to shift.unique_identifier , controller: "shifts", action: "show", unique_identifier: shift.unique_identifier %></td>
-        <td><%= Date.strptime( shift.date, '%Y-%m-%d').strftime('%d. %m. %Y') %></td>  
-        <td><%= shift.name %></td>
-        <td><%= shift.time %></td>
-        <% if shift.status == 1 %>
-            <td><i class="fa fa-check-square" aria-hidden="true"></i></td>
-        <% end %>
-        <% if shift.status == 2 %>
-            <td><i class="fa fa-bed" aria-hidden="true"></i></td>
-        <% end %>
-        <% if shift.status == 0 %>
-            <td><i class="fa fa-question-circle" aria-hidden="true"></i></td>
-        <% end %>
-        <td><%= link_to 'Löschen', shift, method: :delete, data: { confirm: 'Sicher?' } %></td>
-        </tr>
+            <td><%= Date.strptime( shift.date, '%Y-%m-%d').strftime('%d. %m. %Y') %></td>  
+            <td><%= link_to shift.name , controller: "shifts", action: "show", unique_identifier: shift.unique_identifier %></td>
+            <td><%= shift.time %></td>
+            <% if shift.status == 1 %>
+                <td><i class="fa fa-check-square" aria-hidden="true"></i></td>
+            <% end %>
+            <% if shift.status == 2 %>
+                <td><i class="fa fa-bed" aria-hidden="true"></i></td>
+            <% end %>
+            <% if shift.status == 0 %>
+                <td><i class="fa fa-question-circle" aria-hidden="true"></i></td>
+            <% end %>
+            </tr>
         <% end %>
         
     </table>

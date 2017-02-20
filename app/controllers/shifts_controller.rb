@@ -3,8 +3,14 @@ class ShiftsController < ApplicationController
     def index
         @shifts = Shift.all.order('date')
     end
+    
+    def devindex
+        @shifts = Shift.all.order('date')
+    end
+    
     def error
     end
+    
     def new
     @shift = Shift.new
     end
@@ -22,14 +28,9 @@ class ShiftsController < ApplicationController
         end
     end
     
-
-
-
-    
     def show
         @shift = Shift.find_by unique_identifier: ( params[:unique_identifier])
     end
-    
     
     def confirm
         @shift = Shift.find_by unique_identifier: ( params[:unique_identifier])
@@ -58,15 +59,17 @@ class ShiftsController < ApplicationController
                 format.json { head :no_content }
         end
     end
+    
     def request_mailer
         @shift = Shift.find_by unique_identifier: ( params[:unique_identifier])
         ShiftMailer.request_mail(params[:unique_identifier]).deliver
         redirect_to shifts_url
     end
-  private
-    # To collect data from form, we need to use
-    # strong parameters and whitelist the form fields
-    def shift_params
-      params.require(:shift).permit(:name, :time, :date, :status)
-    end
+    
+    private
+        # To collect data from form, we need to use
+        # strong parameters and whitelist the form fields
+        def shift_params
+          params.require(:shift).permit(:name, :time, :date, :status)
+        end
 end

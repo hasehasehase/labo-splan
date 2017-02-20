@@ -1,5 +1,5 @@
 <div class="container">
-  <div>
+  <div>    <%= link_to "Übersicht", shifts_path, class: "btn btn-primary new-shift-btn" %>
   <h3>SCHICHT:</h3> <br><br>
   <div class="center">
     <h4><%= @shift.name %></h4>
@@ -9,7 +9,7 @@
       <th>Zeit:</th>
       <th>Status:</th>
       <tr>
-      <td><%= @shift.date %></td>
+      <td><%= Date.strptime( @shift.date, '%Y-%m-%d').strftime('%d. %m. %Y') %></td>
       <td><%= @shift.time %></td>
         <% if @shift.status == 1 %>
             <td><i class="fa fa-check-square" aria-hidden="true"></i></td>
@@ -26,8 +26,7 @@
       <div class="center">
         <%= link_to "Bestätigen", confirm_path, class: "btn btn-default btn-primary" %>
         <%= link_to "Ablehnen", deny_path, class: "btn btn-default btn-warning" %>
-        
-        <%= link_to "Anfragen", mail_path, class: "btn btn-default btn-danger" %>
+        <%= link_to "Löschen", delete_path, class: "btn btn-default btn-danger", data: { confirm: 'Wirklich löschen?' } %>
       </div>
   </div>
 </div>
