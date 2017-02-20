@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
 #  resources :shifts
 #  post 'shifts', to: 'shifts#update'
 root 'pages#home'
