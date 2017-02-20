@@ -9,7 +9,14 @@
       <th>Zeit:</th>
       <th>Status:</th>
       <tr>
-      <td><%= Date.strptime( @shift.date, '%Y-%m-%d').strftime('%d.%m.%Y') %></td>
+      <td>
+        <% begin %>
+        <%= Date.strptime( @shift.date).strftime('%d.%m.%Y') %>
+        <% rescue ArgumentError %>
+        <%  puts "invalid Date in Shift#{ @shift.id }" %>
+        <%=  @shift.date %>
+        <% end %>
+      </td>
       <td><%= @shift.time %></td>
         <% if @shift.status == 1 %>
             <td><i class="fa fa-check-square" aria-hidden="true"></i></td>

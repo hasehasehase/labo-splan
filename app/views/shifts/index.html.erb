@@ -2,6 +2,7 @@
     <table class="table table-bordered">
         <tr>
             <%= link_to "Neue Schicht hinzufügen", new_shift_path, class: "btn btn-success new-shift-btn" %>
+            
         </tr>
         <tr>
             <th>Datum:</th>
@@ -20,7 +21,14 @@
             <% if shift.status == 2 %>
                 <tr class="info">
             <% end %>
-            <td><%= Date.strptime( shift.date, '%Y-%m-%d').strftime('%d.%m.%Y') %></td>  
+            <td> 
+                <% begin %>
+                    <%= Date.strptime( shift.date).strftime('%d.%m.%Y') %>
+                <% rescue ArgumentError %>
+                    <% puts "invalid Date in Shift#{ shift.id }" %>
+                    <%=  shift.date %>
+                <% end %>
+            </td>  
             <td><%= link_to shift.name , controller: "shifts", action: "show", unique_identifier: shift.unique_identifier %></td>
             <td><%= shift.time %></td>
             <% if shift.status == 1 %>
