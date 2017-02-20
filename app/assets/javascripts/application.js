@@ -17,6 +17,7 @@
 //= require bootstrap-sprockets
 //= require bootstrap-datepicker
 
+/* global $ */
 
  function FFSFunction() {
      document.getElementById('name').value="FFS"
@@ -42,3 +43,9 @@
      document.getElementById('name').value="NS"
      document.getElementById('time').value="22:45 - 03:30"
  }
+ 
+ $('#sandbox-container .date_field').datepicker({
+    format: "dd. mm. yy",
+    calendarWeeks: true,
+    todayHighlight: true
+});

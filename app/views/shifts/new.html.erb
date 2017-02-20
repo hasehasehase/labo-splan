@@ -3,24 +3,26 @@
 
 <%= form_for @shift do |f| %>
 	<div class="form-group">
-	<%= f.label :name %>
-	<%= f.text_field :name, class: 'form-control', id: "name" %>
+		<%= f.label :name %>
+		<%= f.text_field :name, class: 'form-control', id: "name" %>
 	</div>
 	
 	<div class="form-group">
-	<%= f.label "Zeit:" %>
-	<%= f.text_field :time, class: 'form-control', id: "time" %>
+		<%= f.label "Zeit:" %>
+		<%= f.text_field :time, class: 'form-control', id: "time" %>
 	</div>
 	
 	<div class="form-group">
-	<%= f.label "Datum:" %>
-	<%= f.text_field :date, class: 'form-control' %>
+		<%= f.label "Datum:" %>
+		<%= f.date_field :date, class: 'form-control'  %>
+	</div>
 	
 	<div class="form-group">
-	<%= label_tag(:status, "steht fest") %>
-	<%= f.check_box :status %>
+		<%= label_tag(:status, "steht fest") %>
+		<%= f.check_box :status %>
 	</div>
 	<%= f.submit 'Speichern', class: 'btn btn-default' %>
+	
 <% end %>
 
 
