@@ -21,7 +21,7 @@ class ShiftsController < ApplicationController
  #       else    
  #           @shift.status = 0
  #       end
-        @shift.logs = "Erstellt am #{ DateTime.now.in_time_zone('Berlin').strftime('%d. %m. %Y um %H:%M Uhr.')}"
+        @shift.logs = "Erstellt am #{ DateTime.now.in_time_zone('Berlin').strftime('%d.%m.%Y um %H:%M Uhr.')}"
         if @shift.save
             redirect_to shifts_path, notice: "Message sent."
         else
@@ -37,7 +37,7 @@ class ShiftsController < ApplicationController
         @shift = Shift.find_by unique_identifier: ( params[:unique_identifier])
         @shift.status = 1 
         @oldlog = @shift.logs
-        @shift.logs = @oldlog + "<br/>Bestätigt am #{ DateTime.now.in_time_zone('Berlin').strftime('%d. %m. %Y um %H:%M Uhr')}, Mitarbeiter per Mail informiert."
+        @shift.logs = @oldlog + "<br/>Bestätigt am #{ DateTime.now.in_time_zone('Berlin').strftime('%d.%m.%Y um %H:%M Uhr')}, Mitarbeiter per Mail informiert."
         if @shift.save
             ShiftMailer.confirm_mail.deliver
         else
@@ -48,7 +48,7 @@ class ShiftsController < ApplicationController
         @shift = Shift.find_by unique_identifier: ( params[:unique_identifier])
         @shift.status = 2 
         @oldlog = @shift.logs
-        @shift.logs = @oldlog + "<br/>Abgelehnt am #{ DateTime.now.in_time_zone('Berlin').strftime('%d. %m. %Y um %H:%M Uhr')}, Mitarbeiter per Mail informiert."
+        @shift.logs = @oldlog + "<br/>Abgelehnt am #{ DateTime.now.in_time_zone('Berlin').strftime('%d.%m.%Y um %H:%M Uhr')}, Mitarbeiter per Mail informiert."
         
         if @shift.save
             ShiftMailer.deny_mail.deliver
@@ -69,7 +69,7 @@ class ShiftsController < ApplicationController
         @shift = Shift.find_by unique_identifier: ( params[:unique_identifier])
         ShiftMailer.request_mail(params[:unique_identifier]).deliver
         @oldlog = @shift.logs
-        @shift.logs = @oldlog + "<br>Per Mail angefragt am #{ DateTime.now.in_time_zone('Berlin').strftime('%d. %m. %Y um %H:%M Uhr.')}"
+        @shift.logs = @oldlog + "<br>Per Mail angefragt am #{ DateTime.now.in_time_zone('Berlin').strftime('%d.%m.%Y um %H:%M Uhr.')}"
         @shift.save
         redirect_to shifts_url
     end

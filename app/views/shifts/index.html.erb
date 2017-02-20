@@ -20,7 +20,7 @@
             <% if shift.status == 2 %>
                 <tr class="info">
             <% end %>
-            <td><%= Date.strptime( shift.date, '%Y-%m-%d').strftime('%d. %m. %Y') %></td>  
+            <td><%= Date.strptime( shift.date, '%Y-%m-%d').strftime('%d.%m.%Y') %></td>  
             <td><%= link_to shift.name , controller: "shifts", action: "show", unique_identifier: shift.unique_identifier %></td>
             <td><%= shift.time %></td>
             <% if shift.status == 1 %>

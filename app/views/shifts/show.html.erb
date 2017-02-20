@@ -9,7 +9,7 @@
       <th>Zeit:</th>
       <th>Status:</th>
       <tr>
-      <td><%= Date.strptime( @shift.date, '%Y-%m-%d').strftime('%d. %m. %Y') %></td>
+      <td><%= Date.strptime( @shift.date, '%Y-%m-%d').strftime('%d.%m.%Y') %></td>
       <td><%= @shift.time %></td>
         <% if @shift.status == 1 %>
             <td><i class="fa fa-check-square" aria-hidden="true"></i></td>
