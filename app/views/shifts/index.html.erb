@@ -1,7 +1,17 @@
 <div class="container">   
     <table class="table table-bordered">
         <tr>
-            <%= link_to "Neue Schicht hinzufügen", new_shift_path, class: "btn btn-success new-shift-btn" %>
+            <div class="container">
+                <ul class="indexbar">
+                    <li><%= link_to "Neue Schicht hinzufügen", new_shift_path, class: "btn btn-success new-shift-btn" %></li>
+                    <li>
+                        <div class="indexbox well">
+                            <h3>Schichtübersicht für:</h3> 
+                            <%= content_tag(:h4, ENV["user_name"]) %>
+                        </div>
+                    </li>
+                </ul>
+            </div>
             
         </tr>
         <tr>

@@ -44,6 +44,7 @@ th {
 .new-shift-btn {
     margin: 15px;
     margin-top: 22px;
+    float: left;
 }
 
 .big-btn {
@@ -55,4 +56,20 @@ th {
 
 .buttonbox {
     padding: 25px;
+}
+
+.indexbar li {
+    display: inline;
+    list-style-type: none;
+    padding-right: 20px;
+}
+
+.indexbox {
+    float: right; 
+    padding: 10px;
+    margin: 10px 15px 15px 10px;
+}
+
+.indexbox h4 {
+    text-align: center;
 }
