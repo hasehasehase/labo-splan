@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170220041825) do
+ActiveRecord::Schema.define(version: 20170220211540) do
 
   create_table "shifts", force: :cascade do |t|
     t.string   "name"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20170220041825) do
     t.datetime "updated_at",        null: false
     t.string   "unique_identifier"
     t.string   "logs"
+    t.boolean  "req_status"
     t.index ["unique_identifier"], name: "index_shifts_on_unique_identifier", unique: true
   end
 

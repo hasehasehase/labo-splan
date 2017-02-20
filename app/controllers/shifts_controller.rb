@@ -22,6 +22,7 @@ class ShiftsController < ApplicationController
  #           @shift.status = 0
  #       end
         @shift.logs = "Erstellt am #{ DateTime.now.in_time_zone('Berlin').strftime('%d.%m.%Y um %H:%M Uhr.')}"
+        @shift.req_status = false
         if @shift.save
             redirect_to shifts_path, notice: "Message sent."
         else
@@ -70,6 +71,7 @@ class ShiftsController < ApplicationController
         ShiftMailer.request_mail(params[:unique_identifier]).deliver
         @oldlog = @shift.logs
         @shift.logs = @oldlog + "<br>Per Mail angefragt am #{ DateTime.now.in_time_zone('Berlin').strftime('%d.%m.%Y um %H:%M Uhr.')}"
+        @shift.req_status = true
         @shift.save
         redirect_to shifts_url
     end
