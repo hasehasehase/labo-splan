@@ -15,6 +15,9 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap-sprockets
+//= require bootstrap-datepicker
+
+
  function FFSFunction() {
      document.getElementById('name').value="FFS"
      document.getElementById('time').value="04:00 - 13:00"
