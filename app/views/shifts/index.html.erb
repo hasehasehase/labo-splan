@@ -31,6 +31,9 @@
             <% if shift.status == 2 %>
                 <tr class="info">
             <% end %>
+            <% if shift.status == 4 %>
+                <tr class="danger">
+            <% end %>
             <td> 
                 <% begin %>
                     <%= Date.strptime( shift.date).strftime('%d.%m.%Y') %>
@@ -49,6 +52,10 @@
             <% end %>
             <% if shift.status == 0 %>
                 <td><i class="fa fa-question-circle" aria-hidden="true"></i></td>
+            <% end %>
+            <% if shift.status == 4 %>
+                <td><i class="fa fa-question-circle" aria-hidden="true"></i>     <i class="fa fa-envelope" aria-hidden="true"></i></td>
+            <%else %>
             <% end %>
             </tr>
         <% end %>
