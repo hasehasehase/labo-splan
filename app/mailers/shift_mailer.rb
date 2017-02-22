@@ -8,6 +8,7 @@ default from: ENV["from_mail"]
 	def confirm_mail
 		@user_email = ENV["user_email"]
 		mail(to: @user_email, subject: 'Arbeiten.', body: 'Leider :(')
+		puts "sent confirm mail to #{ @user_email}"
 	end
 	
 # Subject can be set in your I18n file at config/locales/en.yml
@@ -18,6 +19,7 @@ default from: ENV["from_mail"]
 	def deny_mail
 		@user_email = ENV["user_email"]
 		mail(to: @user_email, subject: 'Kein Arbeiten.', body: 'Yay! :)')
+		puts "sent deny mail to #{ @user_email}"
 	end
 	
 	def request_mail(uid)
@@ -32,6 +34,8 @@ default from: ENV["from_mail"]
 		@time = @shift.time
 		@op_email = ENV["operator_email"]
 		@uid = uid
+		puts "trying mail.."
 		mail(to: @op_email, subject: "#{ @shift.name } am #{ @date }.")
+		puts "sent request mail to #{ @op_email}"
 	end
 end

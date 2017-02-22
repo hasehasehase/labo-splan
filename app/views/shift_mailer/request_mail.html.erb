@@ -11,8 +11,8 @@
   <b>Datum:</b> <%= @date %><br>
   <b>Schicht:</b> <%= @name %><br>
   <b>Zeit:</b> <%= @time %> <br></p>
-<%= link_to "Schicht findet statt.", confirm_url(:host => 'https://labomailer.herokuapp.com/', :unique_identifier => @uid) %>
+<%= link_to "Schicht findet statt.", confirm_url(:host => 'https://labomailer.herokuapp.com', :unique_identifier => @uid) %>
 <br>
-<%= link_to "Schicht findet nicht statt.", deny_url(:host => 'https://labomailer.herokuapp.com/', :unique_identifier => @uid)%>
+<%= link_to "Schicht findet nicht statt.", deny_url(:host => 'https://labomailer.herokuapp.com', :unique_identifier => @uid)%>
   </body>
 </html>
