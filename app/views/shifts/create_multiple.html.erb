@@ -1,0 +1,34 @@
+<div class="container">
+	<%= link_to "Übersicht", shifts_path, class: "btn btn-primary new-shift-btn" %>
+<div class="well">
+	<h3>Neue Schicht eintragen</h3>
+	
+	<% startdate = Date.today %>
+	<% @i = 0 %>
+	<% begin %>
+		<% @shift.date = startdate.advance(:days => +@i) %>
+		<%= bootstrap_form_for @shift, remote: true do |f| %>
+			<div class="form-inline">
+				<%= f.date_field :date, class: 'form-control', value: @shift.date, hide_label: true  %>			
+				<%= f.text_field :name, class: 'form-control', id: "name", hide_label: true  %>
+				<%= f.text_field :time, class: 'form-control', id: "time", hide_label: true  %>
+				<div class="btn-group">
+				<%= f.radio_button(:status, 1, checked: true, label: "Fest", label_class: "btn btn-primary active", name: "options") %>
+				<%= f.radio_button(:status, 2, label: "Frei", label_class: "btn btn-primary active", name: "options") %>
+				<%= f.radio_button(:status, 0, label: "???", label_class: "btn btn-primary active", name: "options") %>
+				</div>
+				
+				<%= f.submit 'Speichern', class: 'btn btn-default' %>	
+			</div>
+		<% end %>
+		<%  @i +=1 %>
+	<% end until @i > 6 %>
+</div>
+<div class="container center">
+	<button class="btn btn-primary" onclick="FFSFunction()">FFS</button>
+	<button class="btn btn-primary" onclick="FSFunction()">FS</button>
+	<button class="btn btn-primary" onclick="SSFunction()">SS</button>
+	<button class="btn btn-primary" onclick="SSSFunction()">SSS</button>
+	<button class="btn btn-primary" onclick="NSFunction()">NS</button>
+</div>
+</div>

@@ -15,6 +15,10 @@ class ShiftsController < ApplicationController
     @shift = Shift.new
     end
     
+    def create_multiple
+    @shift = Shift.new
+    end
+    
     def create
         @shift = Shift.new(shift_params)
  #       if @shift.status == 1 || @shift.status == 2
@@ -23,9 +27,11 @@ class ShiftsController < ApplicationController
  #       end
         @shift.logs = "Erstellt am #{ DateTime.now.in_time_zone('Berlin').strftime('%d.%m.%Y um %H:%M Uhr.')}"
         if @shift.save
-            redirect_to shifts_path, notice: "Message sent."
+        format.html redirect_to shifts_path, notice: "Message sent."
+        format.js   {}
+        format.json { render json: @shift, status: :created, location: @shift }
         else
-            redirect_to error_path, notice: "Error occured."
+        #    redirect_to error_path, notice: "Error occured."
         end
     end
     

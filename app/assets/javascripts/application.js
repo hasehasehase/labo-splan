@@ -16,6 +16,7 @@
 //= require_tree .
 //= require bootstrap-sprockets
 //= require bootstrap-datepicker
+//= require rails_bootstrap_forms
 
 /* global $ */
 
@@ -44,3 +45,4 @@
      document.getElementById('time').value="22:45 - 03:30"
  }
  
+

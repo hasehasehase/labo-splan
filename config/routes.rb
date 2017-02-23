@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 #  post 'shifts', to: 'shifts#update'
 root 'pages#home'
 
+get 'shifts/create_multiple', to: 'shifts#create_multiple'
 resources :shifts, param: :unique_identifier
 get 'shifts/:unique_identifier/delete', to: 'shifts#destroy', as: 'delete'
 get 'error', to: 'shifts#error', as: 'error'
@@ -12,6 +13,7 @@ get 'shifts/:unique_identifier/deny', to: 'shifts#deny', as: 'deny'
 get 'machen', to: 'shifts#new', as: 'neu_shift'
 get 'zeigen', to: 'shifts#devindex'
 get 'shifts/:unique_identifier/mailen', to: 'shifts#request_mailer', as: 'mail'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
